@@ -1,15 +1,27 @@
 package com.train
 
+import java.util.*
+
+
 fun main(args: Array<String>) {
+    var scanner = Scanner(System.`in`)
+    println("Please enter number of tickets:")
+    var ticknum = scanner.nextInt()
+    println("How many round-trip tickets:")
+    var roundnum = scanner.nextInt()
+    val ticket = Ticketprice(ticknum,roundnum)
+    if((roundnum - ticknum) >= 0){
+        println("來回票大於票數")
+    }else {
+        ticket.Calculation()
+    }
 
 }
 
 class Ticketprice(var tickNum : Int , var roundtrip : Int){
     val discount = 0.9
     val ticketPrice = 1000
-    init {
-        Check()
-    }
+
      fun Calculation(){
         var tickCount = (tickNum-roundtrip)*ticketPrice
          var roundCount = (roundtrip*discount)*ticketPrice*2
@@ -19,13 +31,4 @@ class Ticketprice(var tickNum : Int , var roundtrip : Int){
 
     }
 
-
-    private fun Check() : Boolean{
-        var b = true
-        if((roundtrip - tickNum) < 0){
-            print("錯誤!! 來回票大於購買票數")
-            b = false
-        }
-        return b
-    }
 }

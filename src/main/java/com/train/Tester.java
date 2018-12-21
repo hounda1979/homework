@@ -11,7 +11,10 @@ public class Tester {
         System.out.println("How many round-trip tickets:");
         int roundNum = scanner.nextInt();
         Ticket ticket = new Ticket(TicketNum,roundNum);
-        ticket.Calculation();
-
+        if((roundNum-TicketNum)<=0){
+            System.out.println("來回票大於票數");
+        }else {
+            ticket.Calculation();
+        }
     }
 }
