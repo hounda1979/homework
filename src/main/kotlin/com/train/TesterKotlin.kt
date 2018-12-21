@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     println("How many round-trip tickets:")
     var roundnum = scanner.nextInt()
     val ticket = Ticketprice(ticknum,roundnum)
-    if((roundnum - ticknum) >= 0){
+    if((ticknum - roundnum) <= 0){
         println("來回票大於票數")
     }else {
         ticket.Calculation()
