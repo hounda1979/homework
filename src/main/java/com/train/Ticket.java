@@ -11,10 +11,8 @@ public class Ticket {
     private static final double discount = 0.9;
     private static final int ticketPrice = 1000;
     private  boolean b = true;
-    int[] array={0,0};
 
     public Ticket() {
-
     }
 
     public Ticket(int ticketNum, int roundTrip) {
@@ -35,36 +33,36 @@ public class Ticket {
              if(ticketNum == -1){
                  b = false;
                  break;
-            }else{
-                 array[0] += ticketNum;
-             }
+            }
             System.out.println("How many round-trip tickets:");
             roundTrip = scanner.nextInt();
 
             if(roundTrip == -1 ){
                 b = false;
                 break;
-            }else{
-                array[1] += roundTrip;
             }
             if(roundTrip > ticketNum){
                 System.out.println("來回票大於票數");
                 break;
+            }else{
+                calculation();
             }
+
+
         }while (b);
-        calculation();
+        System.out.println("離開購票系列 謝謝!!");
 
 
     }
     /* 計算票券相關*/
     public void calculation(){
-        int tickeCount = (array[0] - array[1])*ticketPrice;
+        int tickeCount = (ticketNum - roundTrip )*ticketPrice;
 
-        double roundTripPrice = (array[1] * discount)*ticketPrice*2;
+        double roundTripPrice = (roundTrip * discount)*ticketPrice*2;
 
 
-        System.out.println("Total tickets: "+ array[0]);
-        System.out.println("Round-trip: "+ array[1]);
+        System.out.println("Total tickets: "+ ticketNum);
+        System.out.println("Round-trip: "+ roundTrip);
         System.out.println("Total:" + (tickeCount + (int)roundTripPrice) );
     }
 

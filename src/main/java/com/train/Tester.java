@@ -7,10 +7,6 @@ public class Tester {
      Ticket ticket = new Ticket();
      ticket.buyTicket();
 
-
-
-
-
         }
 
 
